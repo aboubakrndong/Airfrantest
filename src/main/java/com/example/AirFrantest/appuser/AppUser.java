@@ -41,7 +41,6 @@ public class AppUser implements UserDetails {
     @Past(message = "The birthdate must be in the past ")
     @NotNull(message = "the birthdate must be higher than 18 years old, please type again")
     private Date birthDate;
-
     @Pattern(regexp = "^[a-zA-Z àâäèéêëîïôœùûüÿçÀÂÄÈÉŒÇ]+$", message = "the name of country can't have numeric or special characters is not allowed")
     private String countryOfResidence;
 
@@ -59,7 +58,7 @@ public class AppUser implements UserDetails {
                    @Past(message = "The birthdate must be in the past ") @NotNull(message = "the birthdate must be higher than 18 years old, please type again") Date birthDate,
                    @Pattern(regexp = "^[a-zA-Z àâäèéêëîïôœùûüÿçÀÂÄÈÉŒÇ]+$", message = "the name of country can't have numeric or special characters is not allowed") String countryOfResidence,
                    @NotNull(message = "phonenumber is optional") String phoneNumber,
-                   @Pattern(regexp = "(MALE|FEMALE|OTHER)$", message = "wrong type , please change") @NotNull(message = "gender is optional") String gender) {
+                   @Pattern(regexp = "(MALE|FEMALE|OTHER)$", message = "wrong type , please change") @NotNull(message = "gender is optional") String gender, AppUserRole user) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
@@ -77,7 +76,54 @@ public class AppUser implements UserDetails {
 
     @Override
     public String getUsername() {
-        return getUsername();
+        return countryOfResidence;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public String getCountryOfResidence() {
+        return countryOfResidence;
+    }
+
+    public void setCountryOfResidence(String countryOfResidence) {
+        this.countryOfResidence = countryOfResidence;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     @Override

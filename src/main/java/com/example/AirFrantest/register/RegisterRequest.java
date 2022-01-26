@@ -16,10 +16,10 @@ public class RegisterRequest {
 
     private final String firstName;
     private final String lastName;
+    private final String password;
+    private final Date   birthDate;
     private final String countryOfResidence;
     private final String phoneNumber;
-    private final String password;
-    private final Date birthDate;
     private final String gender;
 
 }
