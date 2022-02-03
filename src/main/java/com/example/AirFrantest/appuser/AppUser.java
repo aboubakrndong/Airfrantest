@@ -12,6 +12,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
@@ -98,9 +99,9 @@ public class AppUser implements UserDetails {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+   /* public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
-    }
+    }*/
 
     public String getCountryOfResidence() {
         return countryOfResidence;
@@ -144,5 +145,11 @@ public class AppUser implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public void setBirthDate(int Year, int Month, int Day) {
+        Calendar cal = Calendar.getInstance();
+        cal.set( Year, Month, Day );
+        this.birthDate = cal.getTime();
     }
 }
