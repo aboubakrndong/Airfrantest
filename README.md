@@ -14,9 +14,9 @@ The Spring Initializr creates a main class that you can use to launch the applic
 Build the project using mvn clean install
 Run using mvn spring-boot:run
 The web application is accessible via localhost:8080
-Use username and password as 'admin' to login to demo
+Use username and password for the register user in database to login to the app
 
-# what you need 
+# What you need 
 About 15 minutes
 A favorite text editor or IDE
 JDK 1.8 or later
@@ -25,7 +25,7 @@ You can also import the code straight into your IDE:
 Spring Tool Suite (STS)
 IntelliJ IDEA
 
-# technologies and dependencies 
+# Technologies and dependencies 
 ✓ Java version: 8
 ✓ Packaging: Jar
 ✓ Dependencies
@@ -36,7 +36,7 @@ IntelliJ IDEA
 • H2 database 
 • Lombok
 
-# document how to uses the API Airfrantest
+# How to uses the API Airfrantest
 
   To show user with lastName
   GET: /userapi/v1/lastName
