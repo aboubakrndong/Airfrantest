@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path="userapi/v1/register")
+
+
 @AllArgsConstructor
 public class RegisterController {
-
-
     private final RegisterService registerService;
 @PostMapping(path="userapi/v1/")
 @GetMapping(path="userapi/v1/{lastName}")
@@ -18,7 +18,5 @@ public class RegisterController {
         return registerService.registration(request);
     }
 }
-
-
 
 
