@@ -30,10 +30,27 @@ IntelliJ IDEA
 ✓ Packaging: Jar
 ✓ Dependencies
 • Spring Boot DevTools
+• Postgres
 • Spring Data JPA
 • Spring Web
-• Postgres
+• H2 database 
 • Lombok
 
+# document how to uses the API Airfrantest
 
+  To show user with lastName
+  GET: /userapi/v1/lastName
+  
+To register a user
+  POST:  /userapi/v1/
+  
+take into account the constraints linked to each field and
+especially to age and country of residence    
+
+To modify user with LastName
+   PUT /userapi/v1/lastName
+   
+   # Swagger 
+   
+http://localhost:8082/swagger-ui.html
 
