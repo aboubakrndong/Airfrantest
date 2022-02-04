@@ -1,6 +1,6 @@
 package com.example.AirFrantest.AppSecurity.config;
 
-import com.example.AirFrantest.appuser.AppUserService;
+import com.example.AirFrantest.service.AppUserService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,5 +1,6 @@
-package com.example.AirFrantest.appuser;
+package com.example.AirFrantest.model;
 
+import com.example.AirFrantest.appuser.AppUserRole;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

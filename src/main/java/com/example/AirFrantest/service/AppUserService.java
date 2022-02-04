@@ -1,6 +1,9 @@
-package com.example.AirFrantest.appuser;
+package com.example.AirFrantest.service;
 
+import com.example.AirFrantest.model.AppUser;
+import com.example.AirFrantest.repository.AppUserRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -11,21 +14,23 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class AppUserService implements UserDetailsService {
 
+    @Autowired
     private  final AppUserRepository appUserRepository;
+
     private  final BCryptPasswordEncoder bCryptPasswordEncoder;
     private static String ERROR_USER;
 
     @Override
-    public UserDetails loadUserByUsername(String countryOfResidence) throws UsernameNotFoundException {
-        return appUserRepository.findByCountryOfResidence(countryOfResidence).orElseThrow(() -> new UsernameNotFoundException(String.format(ERROR_USER, countryOfResidence)));
+    public UserDetails loadUserByUsername(String lastName) throws UsernameNotFoundException {
+        return appUserRepository.findByLastName(lastName).orElseThrow(() -> new UsernameNotFoundException(String.format(ERROR_USER, lastName)));
     }
 
     public String registerUser(AppUser appUser) {
-       boolean userExists = appUserRepository.findByCountryOfResidence(appUser.getCountryOfResidence())
+       boolean userExists = appUserRepository.findByLastName(appUser.getLastName())
                 .isPresent();
 
        if (userExists) {
-           throw new IllegalStateException("Country of residence not valid");
+           throw new IllegalStateException("lastname not valid");
        }
 
        String passwordCrypted = bCryptPasswordEncoder.encode(appUser.getPassword());
@@ -35,6 +40,5 @@ public class AppUserService implements UserDetailsService {
        appUserRepository.save(appUser);
 
        return "Waouh good job";
-
     }
 }

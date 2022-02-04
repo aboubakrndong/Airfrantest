@@ -1,5 +1,6 @@
 package com.example.AirFrantest.register;
 
+import com.example.AirFrantest.service.RegisterService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

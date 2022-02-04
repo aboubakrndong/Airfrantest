@@ -1,8 +1,9 @@
-package com.example.AirFrantest.register;
-
-import com.example.AirFrantest.appuser.AppUser;
+package com.example.AirFrantest.service;
+import com.example.AirFrantest.model.AppUser;
 import com.example.AirFrantest.appuser.AppUserRole;
-import com.example.AirFrantest.appuser.AppUserService;
+import com.example.AirFrantest.register.RegisterRequest;
+import com.example.AirFrantest.register.ValidatorLastName;
+import com.example.AirFrantest.service.AppUserService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,12 +12,12 @@ import org.springframework.stereotype.Service;
 public class RegisterService {
 
     private final AppUserService appUserService;
-    private final ValidatorCountry validatorCountry;
+    private final ValidatorLastName validatorLastName;
 
     public String registration(RegisterRequest request) {
-      boolean isValidCountry=  validatorCountry.test(request.getCountryOfResidence());
-       if(!isValidCountry){
-           throw new IllegalStateException("Country of residence not valid");
+      boolean isValidLastName=  validatorLastName.test(request.getLastName());
+       if(!isValidLastName){
+           throw new IllegalStateException("lastname not valid");
        }
         return appUserService.registerUser(
                 new AppUser (
